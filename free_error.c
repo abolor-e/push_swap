@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void	ft_free(char **str)
+void	ft_free_(char **str)
 {
 	char	*c;
 
@@ -10,7 +10,7 @@ void	ft_free(char **str)
 	{
 		c = *str;
 		free(c);
-		*str++;
+		str++;
 	}
 	*str = NULL;
 }

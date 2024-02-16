@@ -6,7 +6,7 @@
 #    By: abolor-e <abolor-e@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/22 13:51:08 by abolor-e          #+#    #+#              #
-#    Updated: 2024/02/15 12:10:16 by abolor-e         ###   ########.fr        #
+#    Updated: 2024/02/16 10:17:10 by abolor-e         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,8 +52,6 @@ SRCS		= ft_isalpha.c	\
 			  ft_putstr_fd.c	\
 			  ft_putendl_fd.c	\
 			  ft_putnbr_fd.c	\
-			  get_next_line.c \
-			  get_next_line_utils.c	\
 			  ft_lowhexa.c \
 			  ft_nputchar.c \
 			  ft_nputnbr.c \

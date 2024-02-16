@@ -6,7 +6,7 @@
 /*   By: abolor-e <abolor-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 13:02:11 by abolor-e          #+#    #+#             */
-/*   Updated: 2024/02/15 12:09:55 by abolor-e         ###   ########.fr       */
+/*   Updated: 2024/02/16 10:16:46 by abolor-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,25 +66,6 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-
-// Structure for gnl!
-typedef struct s_list
-{
-	char			*str_buf;
-	struct s_list	*next;
-}				t_list;
-
-// get_next_line functions!
-char	*get_next_line(int fd);
-void	create_buffer_list(t_list **list, int fd);
-void	include_list(t_list **list, char *res);
-char	*get_until_newline(t_list *list);
-void	prep_for_next_line(t_list **list);
-int		newline_check_list(t_list *list);
-int		len_until_newline(t_list *list);
-void	copy(t_list *list, char *new_str);
-void	free_list(t_list **list, t_list *new_node, char *str);
-t_list	*ft_lstlast(t_list *list);
 
 // Printf functions!
 int		ft_printf(const char *format, ...);

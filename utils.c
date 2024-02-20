@@ -45,7 +45,7 @@ void	ft_double_check(t_stack_list *a_stack)
 	}
 }
 
-void	ft_sorted_check(t_stack_list *a_stack)
+int	ft_sorted_check(t_stack_list *a_stack)
 {
 	t_stack_list	*check;
 
@@ -53,10 +53,23 @@ void	ft_sorted_check(t_stack_list *a_stack)
 	{
 		check = a_stack->next;
 		if (check->number < a_stack->number)
-			return ; // Check this return!
+			return (1); // Check this return!
 		a_stack = a_stack->next;
 	}
-	ft_handle_error("Error\n");
-	// Check when 1 number and ascending 
-	// numbers are present, error or nothing?
+	return (0);
+	// Check when 1 number and ascending
+	// - numbers are present, error or nothing?
+}
+
+int	ft_lstsize(t_stack_list *lst)
+{
+	size_t	i;
+
+	i = 0;
+	while (lst)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
 }

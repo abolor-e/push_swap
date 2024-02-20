@@ -6,7 +6,7 @@
 /*   By: abolor-e <abolor-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 15:27:38 by abolor-e          #+#    #+#             */
-/*   Updated: 2024/02/16 14:59:05 by abolor-e         ###   ########.fr       */
+/*   Updated: 2024/02/20 13:43:22 by abolor-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,21 +39,16 @@ int	main(int ac, char **av)
 	}
 	ft_double_check(a_stack); // Need a check for more than 1 same number in the stack!
 	// Check if the numbers are sorted! Error when only 1 number entered!
-	ft_sorted_check(a_stack);
-	// Use ft_lstsize to know how many numbers are there and decide which sorting is best!
+	ft_sorted_check(a_stack);// Check what this function is returning!
 	// Can add the following examples in a new file! Called sorting!
-	/*
 	if (ft_lstsize(a_stack) == 2)
+		sa(&a_stack);
+	else //(ft_lstsize(a_stack) == 3)
+		ft_little_sort(&a_stack);
+	/*
+	else (ft_lst_size(a_stack) > 3)
 	{
-
-	}
-	else if (ft_lstsize(a_stack) == 3)
-	{
-	}
-	else if (ft_lst_size(a_stack) == 5)
-	{
-	}
-	else
 		ft_turk_sorting();
+	}
 	*/
 }

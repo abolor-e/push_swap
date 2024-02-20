@@ -3,13 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: abolor-e <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: abolor-e <abolor-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 11:33:45 by abolor-e          #+#    #+#             */
-/*   Updated: 2023/10/25 11:40:24 by abolor-e         ###   ########.fr       */
+/*   Updated: 2024/02/20 12:12:07 by abolor-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/*
 #include "libft.h"
 
 int	ft_lstsize(t_list *lst)
@@ -24,3 +25,4 @@ int	ft_lstsize(t_list *lst)
 	}
 	return (i);
 }
+*/

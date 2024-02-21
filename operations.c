@@ -33,3 +33,15 @@ void	rra(t_stack_list **a_stack)
 	temp->next = NULL;
 	write(1, "rra\n", 4);
 }
+
+void	ra(t_stack_list **a_stack)
+{
+	t_stack_list	*temp;
+
+	temp = *a_stack;
+	*a_stack = ft_lstlast(*a_stack);
+	(*a_stack)->next = temp;
+	*a_stack = temp->next;
+	temp->next = NULL;
+	write(1, "ra\n", 3);
+}

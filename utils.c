@@ -73,3 +73,17 @@ int	ft_lstsize(t_stack_list *lst)
 	}
 	return (i);
 }
+
+int	ft_min_arg3(t_stack_list *a_stack)
+{
+	int	i;
+
+	i = a_stack->number;
+	while(a_stack)
+	{
+		if (i > a_stack->number)
+			return (1);
+		a_stack = a_stack->next;
+	}
+	return (0);
+}

@@ -27,7 +27,7 @@ t_stack_list	*ft_lstlast(t_stack_list *lst)
 
 void	ft_lstadd_back(t_stack_list **lst, t_stack_list *new)
 {
-	if (!lst || !new)
+	if (!lst || !new || (!lst && !new))
 		return ;
 	if (!(*lst))
 		*lst = new;
@@ -49,7 +49,7 @@ t_stack_list	*ft_extract_ac2(char **av)
 		ft_handle_error("Error\n"); // Maybe should just check in the main.c if a_stack is null!
 	while (pull[i])
 	{
-		a = ft_atoi(pull[i]);// Checks also if the string is a number!
+		a = ft_atoi(pull[i]);
 		ft_lstadd_back(&a_stack, ft_lstnew(a));
 		i++;
 	}

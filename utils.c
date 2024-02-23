@@ -28,9 +28,9 @@ int	ft_atoi(const char *str)
 	return (res * s);
 }
 
-void	ft_double_check(t_stack_list *a_stack)
+void	ft_double_check(t_stack *a_stack)
 {
-	t_stack_list	*check;
+	t_stack	*check;
 
 	while (a_stack)
 	{
@@ -44,24 +44,55 @@ void	ft_double_check(t_stack_list *a_stack)
 		a_stack = a_stack->next;
 	}
 }
-
-int	ft_sorted_check(t_stack_list *a_stack)
+/*
+int	ft_sorted_check(t_stack **a_stack)
 {
-	t_stack_list	*check;
+	t_stack	*check;
 
-	while (a_stack && a_stack->next)
+	check = *a_stack;
+	while (*a_stack && (*a_stack)->next)
 	{
-		check = a_stack->next;
-		if (check->number < a_stack->number)
-			return (1); // Check this return!
-		a_stack = a_stack->next;
+		if (check->number > (*a_stack)->number)
+			return (0); // Check this return!
+		*a_stack = (*a_stack)->next;
 	}
-	return (0);
+	return (1);
 	// Check when 1 number and ascending
 	// - numbers are present, error or nothing?
 }
+*/
 
-int	ft_lstsize(t_stack_list *lst)
+int	ft_sorted_check(t_stack *a_stack)
+{
+	int	i;
+
+	i = a_stack->number;
+	while (a_stack)
+	{
+		if (i > a_stack->number)
+			return (0);
+		i = a_stack->number;
+		a_stack = a_stack->next;
+	}
+	return (1);
+}
+/*
+int	ft_sorted_check(t_stack **a_stack)
+{
+	t_stack	*head;
+
+	head = *a_stack;
+	while (head && head->next)
+	{
+		if (head->number > head->next->number)
+			return (0);
+		head = head->next;
+	}
+	return (1);
+}
+*/
+
+int	ft_lstsize(t_stack *lst)
 {
 	size_t	i;
 
@@ -74,7 +105,7 @@ int	ft_lstsize(t_stack_list *lst)
 	return (i);
 }
 
-int	ft_min_arg3(t_stack_list *a_stack)
+int	ft_min_arg3(t_stack *a_stack)
 {
 	int	i;
 

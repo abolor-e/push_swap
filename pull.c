@@ -2,19 +2,20 @@
 
 // Checking argument count and pulling the data!
 
-t_stack_list	*ft_lstnew(int content)
+t_stack	*ft_lstnew(int content)
 {
-	t_stack_list	*new;
+	t_stack	*new;
 
-	new = (t_stack_list *)malloc(sizeof(t_stack_list));
+	new = (t_stack *)malloc(sizeof(t_stack));
 	if (!new)
 		return (NULL);
 	new->number = content;
+	new->index = -1;
 	new->next = NULL;
 	return (new);
 }
 
-t_stack_list	*ft_lstlast(t_stack_list *lst)
+t_stack	*ft_lstlast(t_stack *lst)
 {
 	if (!lst)
 		return (NULL);
@@ -25,7 +26,7 @@ t_stack_list	*ft_lstlast(t_stack_list *lst)
 	return (lst);
 }
 
-void	ft_lstadd_back(t_stack_list **lst, t_stack_list *new)
+void	ft_lstadd_back(t_stack **lst, t_stack *new)
 {
 	if (!lst || !new || (!lst && !new))
 		return ;
@@ -35,9 +36,9 @@ void	ft_lstadd_back(t_stack_list **lst, t_stack_list *new)
 		(ft_lstlast(*lst))->next = new;
 }
 
-t_stack_list	*ft_extract_ac2(char **av)
+t_stack	*ft_extract_ac2(char **av)
 {
-	t_stack_list	*a_stack;
+	t_stack	*a_stack;
 	char	**pull;
 	int		i;
 	int		a;
@@ -58,9 +59,9 @@ t_stack_list	*ft_extract_ac2(char **av)
 	return (a_stack);
 }
 
-t_stack_list	*ft_extract(int ac, char **av)
+t_stack	*ft_extract(int ac, char **av)
 {
-	t_stack_list	*a_stack;
+	t_stack	*a_stack;
 	int		i;
 	int		a;
 	

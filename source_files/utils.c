@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	ft_atoi(const char *str)
 {
@@ -96,6 +96,8 @@ int	ft_lstsize(t_stack *lst)
 {
 	size_t	i;
 
+	if (!lst)
+		return (0);
 	i = 0;
 	while (lst)
 	{

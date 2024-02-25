@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static t_stack	*ft_min_content(t_stack **a_stack)
 {

@@ -1,4 +1,4 @@
-#include "push_swap.h"
+#include "../push_swap.h"
 
 // Checking argument count and pulling the data!
 
@@ -68,7 +68,7 @@ t_stack	*ft_extract(int ac, char **av)
 	i = 1;
 	a = 0;
 	a_stack = NULL;
-	if (ac < 2 || (ac == 2 && !av[1][0]))
+	if (ac == 2 && !av[1][0])
 		ft_handle_error("Error\n");
 	if (ac == 2)
 		a_stack = ft_extract_ac2(av);

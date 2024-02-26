@@ -10,6 +10,7 @@ int	ft_atoi(const char *str)
 	while (*str == '\n' || *str == '\t' || *str == ' '
 		|| *str == '\v' || *str == '\f' || *str == '\r')
 		str++;
+	ft_little_check(str);
 	if ((*str == '-' || *str == '+') && *(str + 1) != '\0')
 	{
 		if (*str == '-')
@@ -38,7 +39,10 @@ void	ft_double_check(t_stack *a_stack)
 		while (check)
 		{
 			if (a_stack->number == check->number)
+			{
+				ft_free_stack(&a_stack);
 				ft_handle_error("Error\n"); //Check if the stack needs to be freed?
+			}
 			check = check->next;
 		}
 		a_stack = a_stack->next;

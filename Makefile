@@ -2,7 +2,7 @@ NAME = push_swap
 
 CC = cc
 
-CFLAGS = -Wall -Wextra -Werror -g3 -g -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror
 
 SRC = source_files/main.c \
 	  source_files/operations.c \

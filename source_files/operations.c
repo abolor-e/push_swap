@@ -101,6 +101,17 @@ void	ra(t_stack **a_stack)
 	write(1, "ra\n", 3);
 }
 
+void	rb(t_stack **b_stack)
+{
+	t_stack	*temp;
+
+	temp = *b_stack;
+	*b_stack = ft_lstlast(*b_stack);
+	(*b_stack)->next = temp;
+	*b_stack = temp->next;
+	temp->next = NULL;
+	write(1, "rb\n", 3);
+}
 
 int	ft_push(t_stack **a_stack, t_stack **b_stack)
 {
@@ -129,22 +140,16 @@ int	ft_push(t_stack **a_stack, t_stack **b_stack)
 	return (0);
 }
 
-int	pb(t_stack **a_stack, t_stack **b_stack)
+void	pb(t_stack **a_stack, t_stack **b_stack)
 {
-	// Protection ?!
 	if (ft_push(b_stack, a_stack) == -1)
-		//ft_handle_error("Error\n");
-		return (-1);
+		ft_handle_error("Error\n");
 	write(1, "pb\n", 3);
-	return (0);
 }
 
-int	pa(t_stack **a_stack, t_stack **b_stack)
+void	pa(t_stack **a_stack, t_stack **b_stack)
 {
-	// Protection ?!
 	if (ft_push(a_stack, b_stack) == -1)
-		//ft_handle_error("Error\n");
-		return (-1);
+		ft_handle_error("Error\n");
 	write(1, "pa\n", 3);
-	return (0);
 }

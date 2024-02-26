@@ -1,7 +1,5 @@
 #include "../push_swap.h"
 
-// Checking argument count and pulling the data!
-
 t_stack	*ft_lstnew(int content)
 {
 	t_stack	*new;
@@ -47,7 +45,7 @@ t_stack	*ft_extract_ac2(char **av)
 	i = 0;
 	pull = ft_split(av[1], ' ');
 	if (!pull)
-		ft_handle_error("Error\n"); // Maybe should just check in the main.c if a_stack is null!
+		ft_handle_error("Error\n"); //Maybe free?!
 	while (pull[i])
 	{
 		a = ft_atoi(pull[i]);
@@ -70,6 +68,7 @@ t_stack	*ft_extract(int ac, char **av)
 	a_stack = NULL;
 	if (ac == 2 && !av[1][0])
 		ft_handle_error("Error\n");
+	ft_check_av(av);
 	if (ac == 2)
 		a_stack = ft_extract_ac2(av);
 	else if (ac > 2)
@@ -81,5 +80,6 @@ t_stack	*ft_extract(int ac, char **av)
 			i++;
 		}
 	}
+	ft_sort_index(&a_stack);
 	return (a_stack);
 }

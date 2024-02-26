@@ -1,29 +1,7 @@
 #include "../push_swap.h"
-#include <stdio.h>
-/*
-int	ft_min_check3(t_stack *a_stack)
-{
-	t_stack	*temp;
-
-	if (!a_stack)
-		return (-1);
-	temp = a_stack;
-	while (a_stack)
-	{
-		if (temp->number > a_stack->number)
-		{
-			return (1);
-		}
-		a_stack = a_stack->next;
-	}
-	return (0);
-}
-*/
 
 void	ft_little_sort(t_stack **a_stack)
 {
-	if (!*a_stack)
-		return; //Check this return!!! Maybe error handling function call!
 	if (ft_min_arg3(*a_stack) == 0)
 	{
 		rra(a_stack);
@@ -51,28 +29,18 @@ void	ft_sort4(t_stack **a_stack, t_stack **b_stack)
 
 	gap = ft_gap(a_stack);
 	temp = *a_stack;
-	printf("%ld %ld %ld %ld\n", (*a_stack)->number, ((*a_stack)->next)->number, (((*a_stack)->next)->next)->number, ((((*a_stack)->next)->next)->next)->number);
 	if (gap == 1)
-	{
 		sa(a_stack);
-		printf("%ld %ld %ld %ld\n", (*a_stack)->number, ((*a_stack)->next)->number, (((*a_stack)->next)->next)->number, ((((*a_stack)->next)->next)->next)->number);
-	}
 	else if (gap == 2)
 	{
 		ra(a_stack);
-		printf("%ld %ld %ld %ld\n", (*a_stack)->number, ((*a_stack)->next)->number, (((*a_stack)->next)->next)->number, ((((*a_stack)->next)->next)->next)->number);
 		ra(a_stack);
-		printf("%ld %ld %ld %ld\n", (*a_stack)->number, ((*a_stack)->next)->number, (((*a_stack)->next)->next)->number, ((((*a_stack)->next)->next)->next)->number);
 	}
 	else if (gap == 3)
-	{
 		rra(a_stack);
-		printf("%ld %ld %ld %ld\n", (*a_stack)->number, ((*a_stack)->next)->number, (((*a_stack)->next)->next)->number, ((((*a_stack)->next)->next)->next)->number);
-	}
 	if (ft_sorted_check(*a_stack) == 0)
 	{
 		pb(a_stack, b_stack);
-		printf("%ld %ld %ld\n", (*a_stack)->number, ((*a_stack)->next)->number, (((*a_stack)->next)->next)->number);
 		ft_little_sort(a_stack);
 		pa(a_stack, b_stack);
 	}
@@ -98,10 +66,7 @@ void	ft_sort5(t_stack **a_stack, t_stack **b_stack)
 		rra(a_stack);
 	}
 	else if (gap == 4)
-	{
 		rra(a_stack);
-		printf("%ld %ld %ld %ld %ld\n", (*a_stack)->number, ((*a_stack)->next)->number, (((*a_stack)->next)->next)->number, ((((*a_stack)->next)->next)->next)->number, (((((*a_stack)->next)->next)->next)->next)->number);
-	}
 	if (ft_sorted_check(*a_stack) == 0)
 	{
 		pb(a_stack, b_stack);
@@ -109,27 +74,6 @@ void	ft_sort5(t_stack **a_stack, t_stack **b_stack)
 		pa(a_stack, b_stack);
 	}
 }
-
-void	ft_sorting(t_stack **a_stack, t_stack **b_stack)// Maybe Static!
-{
-	//t_stack	*b_stack;
-
-	if (!*a_stack || !(*a_stack)->next)
-		return ; // Check this return!!!
-	//b_stack = NULL; // Maybe need to be mallocked?!
-	ft_sort_index(a_stack);
-	if (ft_lstsize(*a_stack) == 2)
-		sa(a_stack);
-	else if (ft_lstsize(*a_stack) == 3)
-		ft_little_sort(a_stack);
-	else if (ft_lstsize(*a_stack) == 4)
-		ft_sort4(a_stack, b_stack);
-	else if (ft_lstsize(*a_stack) == 5)
-		ft_sort5(a_stack, b_stack);
-	else
-		ft_radix_sort(a_stack, b_stack);
-}
-
 
 static int	ft_maxindex_bits(t_stack **a_stack)
 {
@@ -167,7 +111,7 @@ void	ft_radix_sort(t_stack **a_stack, t_stack **b_stack)
 	temp = *a_stack;
 	list_size = ft_lstsize(temp);
 	iterbits = ft_maxindex_bits(a_stack);
-	while (i++ < iterbits)
+	while (i < iterbits)
 	{
 		a = 0;
 		while (a++ < list_size)
@@ -180,5 +124,76 @@ void	ft_radix_sort(t_stack **a_stack, t_stack **b_stack)
 		}
 		while (ft_lstsize(*b_stack) != 0)
 			pa(a_stack, b_stack);
+		i++;
 	}
+}
+
+// static void	radix_b(t_stack *b_stack, int b_size, int nb_bits, int j, t_stack *a_stack)
+// {
+// 	while (b_size && j <= nb_bits && ft_sorted_check(b_stack) == 0)
+// 	{
+// 		if (((b_stack->index >> j) & 1) == 0)
+// 			rb(&b_stack);
+// 		else
+// 			pa(&a_stack, &b_stack);
+// 		b_size--;
+// 	}
+// 	b_size = ft_lstsize(b_stack);
+// 	if (ft_sorted_check(b_stack) == 1)
+// 	{
+// 		while (b_size >= 0)
+// 		{
+// 			pa(&a_stack, &b_stack);
+// 			b_size--;
+// 		}
+// 	}
+// }
+
+// void	ft_radix_sort(t_stack **a_stack, t_stack **b_stack)
+// {
+// 	int	j;
+// 	int	nb_bits;
+// 	int	size;
+// 	int	size_b;
+
+// 	nb_bits = 0;
+// 	size = ft_lstsize(*a_stack);
+// 	while (size > 1 && ++nb_bits)
+// 		size /= 2;
+// 	j = 0;
+// 	while (j <= nb_bits)
+// 	{
+// 		size = ft_lstsize(*a_stack);
+// 		while (size)
+// 		{
+// 			if ((((*a_stack)->index >> j) & 1) == 1)
+// 				pb(a_stack, b_stack);
+// 			else
+// 				ra(a_stack);
+// 			size--;
+// 		}
+// 		radix_b(*b_stack, ft_lstsize(*b_stack), nb_bits, j + 1, *a_stack);
+// 		j++;
+// 	}
+// 	size_b = ft_lstsize(*b_stack);
+// 	while (size_b >= 0)
+// 	{
+// 		pa(a_stack, b_stack);
+// 		size_b--;
+// 	}
+// }
+
+void	ft_sorting(t_stack **a_stack, t_stack **b_stack)
+{
+	//ft_sort_index(a_stack);
+	if (ft_lstsize(*a_stack) == 2)
+		sa(a_stack);
+	else if (ft_lstsize(*a_stack) == 3)
+		ft_little_sort(a_stack);
+	else if (ft_lstsize(*a_stack) == 4)
+		ft_sort4(a_stack, b_stack);
+	else if (ft_lstsize(*a_stack) == 5)
+		ft_sort5(a_stack, b_stack);
+	else
+		ft_radix_sort(a_stack, b_stack);
 }

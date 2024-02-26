@@ -26,3 +26,25 @@ void	*ft_calloc(size_t count, size_t size)
 		temp[i++] = 0;
 	return (res);
 }
+
+void	ft_check_av(char **av)
+{
+	int	i;
+
+	i = 1;
+	while (av[i])
+	{
+		if (!av[i][0])
+			ft_handle_error("Error\n");
+		i++;
+	}
+}
+
+void	ft_little_check(const char *str)
+{
+	while (*str == '\n' || *str == '\t' || *str == ' '
+		|| *str == '\v' || *str == '\f' || *str == '\r')
+		str++;
+	if (*str == '\0')
+		ft_handle_error("Error\n");
+}

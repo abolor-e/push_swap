@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils2.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abolor-e <abolor-e@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/27 12:58:45 by abolor-e          #+#    #+#             */
+/*   Updated: 2024/02/27 13:10:31 by abolor-e         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 int	ft_max_arg3(t_stack *a_stack)
@@ -13,6 +25,7 @@ int	ft_max_arg3(t_stack *a_stack)
 	}
 	return (i);
 }
+
 static size_t	ft_slen(const char *s, char c)
 {
 	size_t	ret;

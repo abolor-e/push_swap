@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   index.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abolor-e <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/27 12:52:24 by abolor-e          #+#    #+#             */
+/*   Updated: 2024/02/27 12:53:56 by abolor-e         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 static t_stack	*ft_min_content(t_stack **a_stack)
 {
 	t_stack	*temp;
 	t_stack	*point_min;
-	int				starter;
+	int		starter;
 
 	temp = *a_stack;
 	point_min = NULL;
@@ -24,14 +36,14 @@ static t_stack	*ft_min_content(t_stack **a_stack)
 void	ft_sort_index(t_stack **a_stack)
 {
 	t_stack	*temp;
-	int				i;
+	int		i;
 
 	temp = ft_min_content(a_stack);
 	i = 0;
 	while (temp)
 	{
 		temp->index = i++;
-		temp = ft_min_content(a_stack);	
+		temp = ft_min_content(a_stack);
 	}
 }
 
@@ -42,7 +54,7 @@ static int	ft_minindex(t_stack **a_stack)
 
 	temp = *a_stack;
 	min = temp->index;
-	while (temp) //try also with just while (temp)!
+	while (temp)
 	{
 		if (temp->index < min)
 			min = temp->index;
@@ -61,7 +73,7 @@ int	ft_gap(t_stack **a_stack)
 	while (temp)
 	{
 		if (temp->index == ft_minindex(a_stack))
-			break;
+			break ;
 		gap++;
 		temp = temp->next;
 	}

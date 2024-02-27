@@ -12,7 +12,9 @@ SRC = source_files/main.c \
 	  source_files/utils2.c \
 	  source_files/utils3.c \
 	  source_files/free_error.c \
-	  source_files/index.c
+	  source_files/index.c \
+	  source_files/operations2.c \
+	  source_files/radix.c
 
 OBJ = $(SRC:.c=.o)
 

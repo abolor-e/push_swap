@@ -6,7 +6,7 @@
 /*   By: abolor-e <abolor-e@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 13:22:02 by abolor-e          #+#    #+#             */
-/*   Updated: 2024/02/26 13:55:19 by abolor-e         ###   ########.fr       */
+/*   Updated: 2024/02/27 12:34:06 by abolor-e         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
-// Don't forget to delete stdio.h from a file!
 
 # define FAILURE -1
 # define SUCCESS 1
@@ -47,8 +46,6 @@ void	*ft_calloc(size_t count, size_t size);
 void	ft_check_av(char **av);
 void	ft_little_check(const char *str);
 
-void	freestack(t_stack **stack);
-
 // index.c
 void	ft_sort_index(t_stack **a_stack);
 int		ft_gap(t_stack **a_stack);
@@ -56,7 +53,6 @@ int		ft_gap(t_stack **a_stack);
 // free_error.c! error message and free function!
 void	ft_free_(char **str);
 void	ft_handle_error(char *str);
-
 void	ft_free_stack(t_stack **a_stack);
 
 // pull.c! extraction of data!
@@ -73,12 +69,7 @@ void	ra(t_stack **a_stack);
 int		ft_push(t_stack **a_stack, t_stack **b_stack);
 void	pb(t_stack **a_stack, t_stack **b_stack);
 void	pa(t_stack **a_stack, t_stack **b_stack);
-
 void	rb(t_stack **b_stack);
-
-//int	rotate(t_stack **a_stack);
-
-//int	swap(t_stack **a_stack);
 
 // sorting.c!
 void	ft_little_sort(t_stack **a_stack);

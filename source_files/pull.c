@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   pull.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abolor-e <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/27 12:56:13 by abolor-e          #+#    #+#             */
+/*   Updated: 2024/02/27 12:56:47 by abolor-e         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 t_stack	*ft_lstnew(int content)
@@ -40,12 +52,12 @@ t_stack	*ft_extract_ac2(char **av)
 	char	**pull;
 	int		i;
 	int		a;
-	
+
 	a_stack = NULL;
 	i = 0;
 	pull = ft_split(av[1], ' ');
 	if (!pull)
-		ft_handle_error("Error\n"); //Maybe free?!
+		ft_handle_error("Error\n");
 	while (pull[i])
 	{
 		a = ft_atoi(pull[i]);
@@ -62,7 +74,7 @@ t_stack	*ft_extract(int ac, char **av)
 	t_stack	*a_stack;
 	int		i;
 	int		a;
-	
+
 	i = 1;
 	a = 0;
 	a_stack = NULL;

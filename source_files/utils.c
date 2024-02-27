@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: abolor-e <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/27 12:58:00 by abolor-e          #+#    #+#             */
+/*   Updated: 2024/02/27 12:58:31 by abolor-e         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 int	ft_atoi(const char *str)
@@ -41,30 +53,13 @@ void	ft_double_check(t_stack *a_stack)
 			if (a_stack->number == check->number)
 			{
 				ft_free_stack(&a_stack);
-				ft_handle_error("Error\n"); //Check if the stack needs to be freed?
+				ft_handle_error("Error\n");
 			}
 			check = check->next;
 		}
 		a_stack = a_stack->next;
 	}
 }
-/*
-int	ft_sorted_check(t_stack **a_stack)
-{
-	t_stack	*check;
-
-	check = *a_stack;
-	while (*a_stack && (*a_stack)->next)
-	{
-		if (check->number > (*a_stack)->number)
-			return (0); // Check this return!
-		*a_stack = (*a_stack)->next;
-	}
-	return (1);
-	// Check when 1 number and ascending
-	// - numbers are present, error or nothing?
-}
-*/
 
 int	ft_sorted_check(t_stack *a_stack)
 {
@@ -80,21 +75,6 @@ int	ft_sorted_check(t_stack *a_stack)
 	}
 	return (1);
 }
-/*
-int	ft_sorted_check(t_stack **a_stack)
-{
-	t_stack	*head;
-
-	head = *a_stack;
-	while (head && head->next)
-	{
-		if (head->number > head->next->number)
-			return (0);
-		head = head->next;
-	}
-	return (1);
-}
-*/
 
 int	ft_lstsize(t_stack *lst)
 {
@@ -116,7 +96,7 @@ int	ft_min_arg3(t_stack *a_stack)
 	int	i;
 
 	i = a_stack->number;
-	while(a_stack)
+	while (a_stack)
 	{
 		if (i > a_stack->number)
 			return (1);
